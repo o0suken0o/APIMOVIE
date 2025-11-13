@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin — Quản lý phim</title>
+    <link href="../css/stylesadmin.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <main class="container">
+        <header class="topbar">
+            <a href="index.html">
+                <button class="btnthoat">&lt; Quay lại</button>
+            </a>
+            <a href="QLUser.html">
+                <h1 >Trang Admin — Quản lý phim</h1>
+            </a>
+            <h1>Trang Admin — Quản lý phim</h1>
+            <p class="subtitle"></p>
+        </header>
+
+        <section class="card form-card">
+            <h2>Thêm / Chỉnh sửa phim</h2>
+            <form id="movieForm" class="movie-form" autocomplete="off">
+                <!--<div class="row">
+                    <label for="Id">Id</label>
+                    <input id="Id" name="Id" type="text" placeholder="VD: Phim 001" />
+                </div>-->
+
+                <div class="row">
+                    <label for="Title">Title</label>
+                    <input id="Title" name="Title" type="text" placeholder="Tên phim" />
+                </div>
+
+                <div class="row">
+                    <label for="Description">Description</label>
+                    <textarea id="Description" name="Description" rows="3" placeholder="Mô tả ngắn"></textarea>
+                </div>
+
+                <div class="split-3">
+                    <div class="row">
+                        <label for="Genre">Genre</label>
+                        <select name="Genre" id="Genre">
+                            <option value="hoạt hình">hoạt hình</option>
+                            <option value="kinh dị">kinh dị</option>
+                            <option value="hành động">hành động</option>
+                            <option value="hài kịch">hài kịch</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <label for="Director">Director</label>
+                        <input id="Director" name="Director" type="text" placeholder="Đạo diễn" />
+                    </div>
+                    <div class="row">
+                        <label for="Actors">Actors</label>
+                        <input id="Actors" name="Actors" type="text" placeholder="Diễn viên" />
+                    </div>
+                </div>
+
+                <div class="split-3">
+                    <div class="row">
+                        <label for="ReleaseDate">ReleaseDate</label>
+                        <input id="ReleaseDate" name="ReleaseDate" type="date" placeholder="ngày xuát bản" />
+                    </div>
+                    <div class="row">
+                        <label for="Duration">Duration (phút)</label>
+                        <input id="Duration" name="Duration" type="number" min="0" placeholder="120p" />
+                    </div>
+                    <div class="row">
+                        <label for="Language">Language</label>
+                        <input id="Language" name="Language" type="text" placeholder="Ví dụ: Vietnamese" />
+                    </div>
+                </div>
+
+                <div class="split-2">
+                    <div class="row">
+                        <label for="ThumbnailUrl">ThumbnailUrl</label>
+                        <input id="ThumbnailUrl" name="ThumbnailUrl" type="url" placeholder="https://..." />
+                    </div>
+                    <div class="row">
+                        <label for="VideoUrl">VideoUrl</label>
+                        <input id="VideoUrl" name="VideoUrl" type="url" placeholder="https://..." />
+                    </div>
+                </div>
+
+                <div class="split-3">
+                    <div class="row">
+                        <label for="Rating">Rating</label>
+                        <input id="Rating" name="Rating" type="number" min="0" max="10" step="0.1" placeholder="0 - 10" />
+                    </div>
+                    <div class="row">
+                        <label for="IsActive">IsActive</label>
+                        <div class="checkbox-row">
+                            <input id="IsActive" name="IsActive" type="checkbox" />
+                            <label for="IsActive" class="small-label">Kích hoạt</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="Country">Country</label>
+                        <input id="Country" name="Country" type="text" placeholder="Quốc gia" />
+                    </div>
+                </div>
+
+                <div class="split-2">
+                    <div class="row">
+                        <label for="AgeRating">AgeRating</label>
+                        <input id="AgeRating" name="AgeRating" type="text" />
+                    </div>
+                    <!--<div class="row">
+                        <label for="CreatedBy">CreatedBy</label>
+                        <input id="CreatedBy" name="CreatedBy" type="text" />
+                    </div>-->
+                </div>
+
+                <!--<div class="row">
+                    <label for="CreatedAt">CreatedAt</label>
+                    <input id="CreatedAt" name="CreatedAt" type="datetime-local" />
+                </div>-->
+
+                <div class="actions">
+
+                    <a>
+                        <button type="submit" id="Save" class="btn primary">Lưu</button>
+                    </a>
+
+                    <button type="reset" class="btn">Xóa form</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="card list-card">
+            <h2>Danh sách phim</h2>
+            <div class="table-wrapper">
+                <table id="moviesTable">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Genre</th>
+                            <th>Director</th>
+                            <th>Actors</th>
+                            <th>ReleaseDate</th>
+                            <th>Duration</th>
+                            <th>Language</th>
+                            <th>Rating</th>
+                            <th>IsActive</th>
+                            <th>Country</th>
+                            <th>AgeRating</th>
+                            <th>CreatedBy</th>
+                            <th>CreatedAt</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="moviesTableBody">
+                        <!-- JS sẽ chèn các dòng phim vào đây -->
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- Form sửa phim -->
+            <div id="editModal" style="display:none; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+                <h3>Sửa Phim</h3>
+                <input type="hidden" id="editId"> <!-- Lưu id phim -->
+                <div>
+                    <label>Title:</label>
+                    <input type="text" id="editTitle">
+                </div>
+                <div>
+                    <label>Genre:</label>
+                    <input type="text" id="editGenre">
+                </div>
+                <div>
+                    <label>Is Active:</label>
+                    <input type="checkbox" id="editIsActive">
+                </div>
+                <button id="saveEditBtn">Lưu</button>
+                <button onclick="document.getElementById('editModal').style.display='none'">Hủy</button>
+            
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <small>Admin — Quản lý phim</small>
+        </footer>
+    </main>
+    <script src="../js/dsphim.js"></script>
+    <script src="js/Home.js"></script>
+</body>
+</html>

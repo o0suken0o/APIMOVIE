@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhóm 3</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">🎬 NHÓM 3</div>
+
+        <nav>
+            <a href="indexadmin.html" id="btnadmin">Admin</a>
+            <a href="#">Trang chủ</a>
+
+            <!-- Dropdown Thể Loại -->
+            <div class="dropdown">
+                <button class="dropbtn">Thể Loại ▾</button>
+                <div class="dropdown-content">
+                    <div class="cat-grid">
+                        <a href="#" data-cat="hoạt hình">hoạt hình</a>
+                        <a href="#" data-cat="kinh dị">kinh dị</a>
+                        <a href="#" data-cat="hành động">hành động</a>
+                        <a href="#" data-cat="hài kịch">hài kịch</a>
+                    </div>
+                </div>
+            </div>
+            <a href="history.html">Lịch sử</a>
+            <a id="dangnhap" class="btn-login" href="login.html">Đăng nhập</a>
+            <a class="btn-logout" href="#" style="display:none;">Đăng xuất</a>
+        </nav>
+
+    </header>
+    <section class="banner">
+        <h1>Phim Hot Nhất Hôm Nay</h1>
+        <p>Xem phim chất lượng cao, miễn phí 100%</p>
+        <p>nói không với quản cáo</p>
+    </section>
+
+    <!-- Danh sách phim -->
+    <section class="movie-section">
+        <h2>Phim Mới Cập Nhật</h2>
+        <div id="movie-grid">
+            <!-- phim hiên thị ở đây !-->
+        </div>
+    </section>
+    <script src="js/Home.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        // bật/tắt dropdown khi click vào nút (dùng cho mobile)
+        document.addEventListener('click', function (e) {
+            const btn = document.querySelector('.dropbtn');
+            const dropdown = document.querySelector('.dropdown');
+            if (!btn || !dropdown) return;
+
+            if (btn.contains(e.target)) {
+                dropdown.classList.toggle('open');
+                document.querySelector('.dropdown-content').style.display =
+                    dropdown.classList.contains('open') ? 'block' : 'none';
+            } else {
+                // click ngoài: đóng
+                dropdown.classList.remove('open');
+                document.querySelector('.dropdown-content').style.display = 'none';
+            }
+        });
+
+    </script>
+</body>
+</html>

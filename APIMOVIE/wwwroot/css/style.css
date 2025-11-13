@@ -1,0 +1,217 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #000; /* Sửa #0000 thành #000 (đen) — #0000 là trong suốt */
+    color: #fff;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #726be009;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s; /* thêm thuộc tính cụ thể */
+}
+
+    nav a:hover {
+        color: #f39c12;
+    }
+
+
+.banner {
+    background: url('https://khoinguonsangtao.vn/wp-content/uploads/2022/07/hinh-nen-anime-4k.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding: 150px 20px;
+}
+
+    .banner h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+/* Movies */
+.movie-section {
+    margin: 0 60px;
+    padding: 40px;
+}
+
+    .movie-section h2 {
+        margin-bottom: 20px;
+    }
+
+#movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.movie-card {
+    flex: 0 0 calc((100% - (3 * 50px)) / 4);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #111;
+    color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+    .movie-card .anh {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        border-radius: 20px;
+    }
+
+    .movie-card h3 {
+        margin: 10px;
+        margin-bottom: 6px;
+        font-size: 16px;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .movie-card p {
+        margin: 0 10px 12px 10px;
+        font-size: 13px;
+        opacity: 0.85;
+    }
+
+    /* Hover */
+    .movie-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        cursor: pointer;
+    }
+/* Button */
+.btn {
+    padding: 0.7rem 1.4rem;
+    background: red;
+    color: #fff;
+    font-weight: 400;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn:hover {
+        background: darkred;
+    }
+
+.anh {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px, 20px,
+}
+
+div {
+    display: flex;
+}
+/* ---------- Dropdown Thể Loại (menu giống ảnh) ---------- */
+nav {
+    position: relative;
+    z-index: 50;
+}
+/* đảm bảo dropdown vượt lên trên */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 14px; /* canh khoảng cách */
+}
+
+.dropbtn {
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* hộp dropdown ẩn mặc định */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    transform: translateX(-6px); /* hiệu chỉnh cho canh trái - tùy nav */
+    background: rgba(20,20,20,0.98); /* nền gần đen */
+    border-radius: 12px;
+    padding: 18px;
+    min-width: 320px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* hiện khi hover (máy tính) */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+/* lưới 3 cột giống ảnh */
+.cat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 12px 26px;
+    align-items: start;
+    color: #fff;
+}
+
+    /* style từng link thể loại */
+    .cat-grid a {
+        display: inline-block;
+        text-decoration: none;
+        color: #e6e6e6;
+        padding: 6px 8px;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: background 0.18s, color 0.18s, transform 0.12s;
+    }
+
+        /* hover giống ảnh: nền tối hơn / giữ font trắng, hoặc đổi vàng */
+        .cat-grid a:hover {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* tùy chọn: đổi màu active (nếu muốn) */
+        .cat-grid a.active,
+        .cat-grid a:active {
+            background: #f39c12;
+            color: #000;
+        }

@@ -1,0 +1,127 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin — Quản lý người dùng</title>
+    <link href="../css/stylesadmin.css" rel="stylesheet" />
+</head>
+<body>
+    <main class="container">
+        <header class="topbar">
+            <a href="index.html">
+                <button class="btnthoat">&lt; Quay lại</button>
+            </a>
+            <h1>Trang Admin — Quản lý người dùng</h1>
+            <p class="subtitle">Thêm, sửa, xóa tài khoản người dùng</p>
+        </header>
+
+        <!-- Form thêm user -->
+        <section class="card form-card">
+            <h2>Thêm người dùng</h2>
+            <form id="userForm" class="movie-form" autocomplete="off">
+                <div class="split-2">
+                    <div class="row">
+                        <label for="Username">Tên đăng nhập</label>
+                        <input id="Username" name="Username" type="text" placeholder="vd: hoang123" required />
+                    </div>
+                    <div class="row">
+                        <label for="Email">Email</label>
+                        <input id="Email" name="Email" type="email" placeholder="vd: abc@gmail.com" required />
+                    </div>
+                </div>
+
+                <div class="split-2">
+                    <div class="row">
+                        <label for="Password">Mật khẩu</label>
+                        <input id="Password" name="Password" type="password" placeholder="••••••••" required />
+                    </div>
+                    <div class="row">
+                        <label for="Role">Quyền</label>
+                        <select id="Role" name="Role">
+                            <option value="User">User</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="split-2">
+
+                    <div class="row">
+                        <label for="IsActive">Kích hoạt</label>
+                        <div class="checkbox-row">
+                            <input id="IsActive" name="IsActive" type="checkbox" />
+                            <label for="IsActive" class="small-label">Hoạt động</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" id="SaveUser" class="btn primary">Lưu</button>
+                    <button type="reset" class="btn">Xóa form</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Bảng danh sách user -->
+        <section class="card list-card">
+            <h2>Danh sách người dùng</h2>
+            <div class="table-wrapper">
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên đăng nhập</th>
+      
+                            <th>Email</th>
+                            <th>Quyền</th>
+                            <th>Hoạt động</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- JS sẽ chèn dữ liệu người dùng -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal sửa user -->
+            <div id="editUserModal" style="display:none; border:1px solid #ccc; padding:10px; background:#f9f9f9;">
+                <h3>Sửa người dùng</h3>
+                <input type="hidden" id="editUserId">
+                <div>
+                    <label>Tên đăng nhập:</label>
+                    <input type="text" id="editUsername">
+                </div>
+                <div>
+                    <label>Mật khẩu:</label>
+                    <input type="password" id="editPassword">
+                </div>
+                <div>
+                    <label>Email:</label>
+                    <input type="email" id="editEmail">
+                </div>
+                <div>
+                    <label>Quyền:</label>
+                    <select id="editRole">
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Hoạt động:</label>
+                    <input type="checkbox" id="editIsActive">
+                </div>
+                <button id="saveEditUserBtn">Lưu</button>
+                <button onclick="document.getElementById('editUserModal').style.display='none'">Hủy</button>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <small>Admin — Quản lý người dùng</small>
+        </footer>
+    </main>
+
+    <script src="../js/users.js"></script>
+</body>
+</html>

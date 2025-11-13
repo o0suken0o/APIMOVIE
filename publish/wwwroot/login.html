@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial;
+            display: flex;
+            background-image: url('img/bg.jpg');
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: transparent;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            color: white;
+            background: transparent;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background: #0056b3;
+            }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .ten {
+            color: white;
+        }
+
+        .text::placeholder {
+            color: white;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        .dk {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="form-container">
+        <h2>Đăng nhập</h2>
+
+        <form id="login-form">
+            <input class="text" type="email" id="login-email" placeholder="Email" required />
+            <input class="text" type="password" id="login-password" placeholder="Mật khẩu" required />
+            <button type="submit">Đăng nhập</button>
+        </form>
+
+    <p class="ten">Chưa có tài khoản? <a href="register.html" class="dk">Đăng ký</a></p>
+        <p id="result" style="color:red; margin-top:10px;"></p>
+    </div>
+    <script src="js/Home.js"></script>
+</body>
+</html>
